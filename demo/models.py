@@ -69,9 +69,9 @@ def lstm(tokenizer, configs, device, pretrained_weights):
     return model
 
 
-def prepare_model(device, configs, tokenizer, print_params=True):
+def prepare_model(device, configs, tokenizer, pretrained_weights=False, print_params=True):
     if configs['backbone'] == 'lstm':
-        model = lstm(tokenizer, configs, device, pretrained_weights=configs['pretrained_weights'])
+        model = lstm(tokenizer, configs, device, pretrained_weights=False)
     else:
         print('wrong given backbone')
         model = None
