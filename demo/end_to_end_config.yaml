@@ -2,7 +2,7 @@ fix_seed: 0
 backbone: lstm
 checkpoint_path: pretrained_models/end_to_end/lstm/55/best_valid_f1_checkpoint.pth
 window_size: 55
-data_path: S:\Programming\Ubiquitylation\data\test data\processed\test_hybrid\55.CSV
+data_path: ..\data\test data\processed\window\55.CSV
 batch_size: 128
 num_workers: 0
 save_path: ./results
