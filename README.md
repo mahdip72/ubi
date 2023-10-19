@@ -5,12 +5,13 @@ This is the official repository of "**A Benchmark for Machine Learning based Ubi
 - [x] Add end to end training codes.
 - [x] Add hybrid training codes.
 - [x] Add preprocessing codes.
-- [x] Add demo code.
+- [x] Add end to end demo code.
+- [ ] Add hybrid demo code.
 - [x] Add end to end datasets.
 - [ ] Add hybrid datasets.
 - [ ] Add how to use 
 - [x] Update readme to show how to use the demo codes.
-- [ ] Support to get raw sequence as the input of demo codes. 
+- [ ] Support to get raw sequences as the input of demo codes. 
 
 ## Requirements
 
@@ -27,7 +28,7 @@ If you want to use python environment:
 
 1. Create a python environment: `python3 -m venv <env_name>`.
 2. Activate the environment you have just created: `source <env_name>/bin/activate`.
-3. install dependencies inside it: `pip3 install -r requirements.txt`.
+3. Install dependencies inside it: `pip3 install -r requirements.txt`.
 
 ## Demo
 To do inference you have to prepare your windowed dataset and change the end_to_end_config.yaml. 
