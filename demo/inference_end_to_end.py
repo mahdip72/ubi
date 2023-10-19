@@ -17,10 +17,13 @@ def test(dataloader, model, tools):
         with torch.no_grad():
             sequence = sequence.to(tools['device'])
             pred = model(sequence)
-            results.append(torch.argmax(pred.cpu(), dim=-1))
+            results.append(torch.argmax(torch.softmax(pred.cpu(), dim=-1), dim=-1).numpy())
     end = time.time()
 
     print('time of process:', end - start)
+
+    final_results = np.concatenate(results)
+    return final_results
 
 
 def main(window_size, batch, seed):
@@ -81,21 +84,19 @@ def main(window_size, batch, seed):
     print('Evaluating the model on a test set:')
     best_model = prepare_model(device, configs, tokenizer, print_params=False)
     best_model.load_state_dict(torch.load(os.path.join(checkpoint_path, "best_valid_f1_checkpoint.pth")))
-    test(test_dataloader, best_model, tools)
+    results = test(test_dataloader, best_model, tools)
 
+    df = pd.DataFrame(results)
+    df.to_csv('./results/results.csv', index=False)
     print(f'Window size {window_size} done')
     print('\n')
-
-    del test_data, test_dataloader
-    del test_df,  tools
-    del best_model
 
 
 if __name__ == '__main__':
     test_gpu_cuda()
 
-    window_list = [(55, 512),
-                   (77, 512),
+    window_list = [(55, 128),
+                   (77, 128),
                    ]
     for s in [0, 1, 2, 3, 4]:
         for w, b in window_list:
