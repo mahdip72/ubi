@@ -12,9 +12,15 @@ This is the official repository of "**A Benchmark for Machine Learning based Ubi
 - [x] Update readme to show how to use the demo codes.
 - [ ] Support to get raw sequence as the input of demo codes. 
 
+## Requirements
+
+```
+python 3.10
+pytorch 2.1.0+cuda118
+ ```
 
 ## Install
-For the test project install the corresponding `requirements.txt` files in 
+For testing the project install the corresponding `requirements.txt` files in 
 your environment. 
 
 If you want to use python environment:
