@@ -12,6 +12,7 @@ This is the official repository of "**A Benchmark for Machine Learning based Ubi
 - [ ] Add how to use 
 - [x] Update readme to show how to use the demo codes.
 - [ ] Support to get raw sequences as the input of demo codes. 
+- [ ] Add benchmark dataset and its description.
 
 ## Requirements
 
