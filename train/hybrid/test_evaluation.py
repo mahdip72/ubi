@@ -138,7 +138,7 @@ def main(window_size, batch, seed):
 
     print('Evaluating best model on the test set:')
     best_model = prepare_model(device, configs, tokenizer, print_params=False)
-    best_model.load_state_dict(torch.load(os.path.join(checkpoint_path, "best_valid_f1_checkpoint.pth")))
+    best_model.load_state_dict(torch.load(os.path.join(checkpoint_path, "best_valid_f1_checkpoint.pth"), map_location="cpu", weights_only=True))
     test(test_dataloader, best_model, tools)
 
     print(f'Window size {window_size} done')
