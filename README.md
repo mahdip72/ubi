@@ -16,8 +16,8 @@ This is the official repository of "**A Benchmark for Machine Learning based Ubi
 ## Requirements
 
 ```
-python 3.10
-pytorch 2.1.0+cuda118
+Python 3.10-3.12
+PyTorch 2.13.0 / torchvision 0.28.0
  ```
 
 ## Install
@@ -28,7 +28,26 @@ If you want to use python environment:
 
 1. Create a python environment: `python3 -m venv <env_name>`.
 2. Activate the environment you have just created: `source <env_name>/bin/activate`.
-3. Install dependencies inside it: `pip3 install -r requirements.txt`.
+3. Install a matching official PyTorch build, then the demo dependencies from the repository root:
+
+```sh
+# CPU environment for offline compatibility checks:
+python -m pip install torch==2.13.0 torchvision==0.28.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r demo/requirements.txt
+python -m unittest discover -s tests -v
+```
+
+For GPU use, select an [official PyTorch 2.13.0 CUDA wheel channel](https://pytorch.org/get-started/previous-versions/)
+such as `cu126` instead of `cpu`, with a compatible NVIDIA driver. The old CUDA 11.8
+pins contain known vulnerabilities and must not be restored. Use a fresh environment
+when moving from the original stack. The dependency file covers the demo; transformer
+training scripts need their additional libraries separately.
+
+The LSTM architecture and state-dict format are unchanged. Checkpoints are loaded
+with `weights_only=True` onto CPU before copying into the model. The small test uses
+synthetic tensors and a local in-memory checkpoint; it does not train or download
+models or datasets. GPU performance and full pretrained-model evaluation have not
+been validated for this dependency upgrade.
 
 ## Demo
 To do inference you have to prepare your windowed dataset and change the end_to_end_config.yaml. 

@@ -64,7 +64,7 @@ def main(configs):
 
     print('Evaluating the model on a test set ...')
     best_model = prepare_model(device, configs, tokenizer, print_params=False)
-    best_model.load_state_dict(torch.load(configs['checkpoint_path']))
+    best_model.load_state_dict(torch.load(configs['checkpoint_path'], map_location="cpu", weights_only=True))
     results = test(test_dataloader, best_model, device)
 
     df = pd.DataFrame(results)
