@@ -1,4 +1,4 @@
-# Python 3.10-3.12. Install the matching torch/torchvision CPU or CUDA wheels first.
+# Python 3.11-3.12. Install the matching torch/torchvision CPU or CUDA wheels first.
 torch==2.13.0
 torchvision==0.28.0
 
@@ -17,7 +17,7 @@ networkx==3.0
 numpy==1.26.4
 packaging==26.3
 pandas==2.1.1
-Pillow==12.3.0
+Pillow==13.0.0
 python-dateutil==2.8.2
 pytz==2023.3.post1
 PyYAML==6.0.1
