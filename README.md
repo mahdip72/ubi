@@ -16,9 +16,11 @@ This is the official repository of "**A Benchmark for Machine Learning based Ubi
 ## Requirements
 
 ```
-Python 3.10-3.12
+Python 3.11-3.12
 PyTorch 2.13.0 / torchvision 0.28.0
  ```
+
+Python 3.11 or 3.12 is required for Pillow 13.0.0, which fixes image parser and encoder security issues. Python 3.10 is no longer supported by this dependency set.
 
 ## Install
 For testing the project install the corresponding `requirements.txt` files in 
